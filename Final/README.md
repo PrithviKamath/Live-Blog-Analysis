@@ -6,7 +6,7 @@ WebHose provides on-demand access to web data feeds anyone can consume. Webhose.
 Webhose.io is the brainchild of Ran Geva and Guy Mor, two entrepreneurs with extensive experience in technology, data mining, and product development who set up to build a simple solution for a complicated problem for anyone who wants to consume data from the web. <br />
  <br />
 <b>Dataset Summary:</b> <br />
-Each JSON files has the below structure <br />
+Each JSON files has the below structure <br /> <br />
 <img src="https://github.com/PrithviKamath/Live-Blog-Analysis/blob/master/Final/Extra/Dataset%20Summary.PNG"></img>
  <br />
   <br />
@@ -22,9 +22,9 @@ I have followed the below steps to  <br />
 <b>Approach:</b> <br />
 • Sign In to WebHose.io to get a free token (API Key) <br />
 • Set this token as an environmental variable for easy accessibility <br />
-• Pass ‘Reviews’ as a query to get 100 latest blogs, news and discussion about various reviews on the internet in JSON format. (Each JSON file represents one blog) <br />
+• Pass ‘Reviews’ as a query to get 100 latest blogs, news and discussion about various reviews on the internet in JSON format. (Each JSON file represents one blog) <br /> <br />
 <img src="https://github.com/PrithviKamath/Live-Blog-Analysis/blob/master/Final/Extra/Download%20Data.PNG"></img>
- <br />
+ <br /> <br />
 <b>Store Raw Data</b> <br />
 <b>Approach:</b> <br />
 • Get the working directory and move to its parent directory to start creating a folder structure <br />
@@ -34,9 +34,9 @@ I have followed the below steps to  <br />
 • Dynamically create folders for each country the JSON files belongs to and save those JSON files in their respective country folders <br />
 • If the country folders already exist, add the new JSON files in them <br />
 • The naming format for each JSON file is: ‘UUID_time_stamp’ for easy identification <br />
-• JSON files with missing country tag are moved to ‘Not Mentioned’ folder <br />
+• JSON files with missing country tag are moved to ‘Not Mentioned’ folder <br /> <br />
 <img src="https://github.com/PrithviKamath/Live-Blog-Analysis/blob/master/Final/Extra/Data%20Storage.PNG"></img>
- <br />
+ <br /> <br />
 <b>Perform Data Wrangling and generate processed data</b> <br />
 <b>Data Concatenation:</b> <br />
 <b>Approach:</b> <br />
@@ -50,14 +50,19 @@ I have followed the below steps to  <br />
 • ‘domain_rank’ has 55% missing values. To fill these missing values we have to understand what ‘domain_rank’ represents and what are the factors it is based on.  <br />
 • ‘main_image’ is the image URL and its missing values are filled with ‘NA’ <br />
  <br />
+We shall hence forth be using cleaned and processed file stored in 'Processed Data' folder to perform analysis.
+ <br /> <br />
 <b>Analysis 1:</b> Tf-idf (Text frequency- Inverse Document Frequency) <br />
-We implement this algorithm to understand what is the current trending topic among blogers. This algorithm calculates the weight for each word based on the its occurrence in the file and compares it with words in all other files. It reduces the weight of words which appears in multiple files thereby increasing the weight of unique words of each file. <br />
+We implement this algorithm to understand what is the current trending topic among blogers. This algorithm calculates the weight for each word based on the its occurrence in the file and compares it with words in all other files. It reduces the weight of words which appears in multiple files thereby increasing the weight of unique words of each file. <br /> <br />
+<b>Explanation</b> <br />
 • Tf(word,blob): Calculates term frequency for every word normalized by dividing by the total number of words in the file. <br />
 • N_containing(word,bloblist): Returns the number of documents containing the word passed in the argument. <br />
 • Idf(word,bloblist): Computes Inverse Document Frequency by computing how the occurrence of the word. I take the ratio of total number of documents to the number of documents in which the word occurs and take a log of this. We also add 1 to the divisor to prevent division by 0. <br />
 • Tfidf(word,blob,bloblist): Computes tfidf score by multiplying tf and idf values calculated above. <br />
 • We then use NLTK package to remove the stop words in English and generate a ‘tfanalysis’ DataFrame containing only the text.  <br />
  <br />
+ <img src="https://github.com/PrithviKamath/Live-Blog-Analysis/blob/master/Final/Extra/tf-idf.PNG"></img>
+  <br /> <br />
 <b>Approach:</b> <br />
 • Remove punctuations from the text <br />
 • Remove stop words using NLTK package <br />
@@ -65,26 +70,27 @@ We implement this algorithm to understand what is the current trending topic amo
 • Find the score for each word using the above defined functions <br />
 • Display only the highest rated word for each file <br />
  <br />
-Tf-idf takes 1 hour to analyze 700 blogs. <br />
-<b>Conclusion:</b> <br />
+Tf-idf takes 1 hour to analyze 700 blogs. <br /> <br />
+<b>Conclusion:</b>
  <br />
-<b>Analysis 2:</b> Get country wise distribution of number of people contributing to blog writing and replying to various blog over the past month. <br />
+ <br />
+<b>Analysis 2:</b> Get country wise distribution of number of people contributing to blog writing and replying to various blog over the past month. <br /> <br />
 <b>Approach:</b> <br />
 • Convert the published_date to datetime format <br />
 • Extract day and save it into a new derived variable named ‘published_day’ <br />
 • Get top 20 countries which contribute to blog writing using groupby function on ‘published_day’ and ‘country’ variable <br />
 • Get top 20 countries which contribute to replying to blog using groupby function on ‘published_day’ and ‘country’ and getting a count of ‘replies_count’ <br />
 • Use matplotlib to generate subplots <br />
-• Generate graphs usgin seaborn for the above generated DataFrames <br />
+• Generate graphs usgin seaborn for the above generated DataFrames <br /> <br />
 <b>Conclusion:</b> <br />
 • On observing the trend, we understand that there is a large contribution of people from US to writing blogs and replying to blogs <br />
 • As this trend is continuous, we can also conclude that they contribute on an everyday basis <br />
  <br />
-<b>Analysis 3:</b> Find the most preferred language to write a blog <br />
+<b>Analysis 3:</b> Find the most preferred language to write a blog <br /> <br />
 <b>Approach:</b> <br />
 • Group the entire dataset based on languages that blogs are published in <br />
 • Get the various ‘site_type’ supported by various languages <br />
-• Get the count of replies for blogs in each language <br />
+• Get the count of replies for blogs in each language <br /> <br />
 <b>Conclusion:</b> <br />
 English is the most preferred language to write a blog because of the following: <br />
 • It is the only language that supports all 3 types of articles that is blog, news and discussions <br />
