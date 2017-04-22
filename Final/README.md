@@ -71,7 +71,10 @@ We implement this algorithm to understand what is the current trending topic amo
 • Display only the highest rated word for each file <br />
  <br />
 Tf-idf takes 1 hour to analyze 700 blogs. <br /> <br />
-<b>Conclusion:</b>
+<b>Conclusion:</b> <br />
+• On observing the trend, we understand that there is a large contribution of people from US to writing blogs and replying to blogs <br />
+• As this trend is continuous, we can also conclude that they contribute on an everyday basis <br />
+<img src="https://github.com/PrithviKamath/Live-Blog-Analysis/blob/master/Final/Analysis/Analysis%201/Analysis%201.PNG"></img>
  <br />
  <br />
 <b>Analysis 2:</b> Get country wise distribution of number of people contributing to blog writing and replying to various blog over the past month. <br /> <br />
@@ -86,6 +89,8 @@ Tf-idf takes 1 hour to analyze 700 blogs. <br /> <br />
 • On observing the trend, we understand that there is a large contribution of people from US to writing blogs and replying to blogs <br />
 • As this trend is continuous, we can also conclude that they contribute on an everyday basis <br />
  <br />
+ <img src="https://github.com/PrithviKamath/Live-Blog-Analysis/blob/master/Final/Analysis/Analysis%202/Analysis%202.PNG"></img>
+ <br />
 <b>Analysis 3:</b> Find the most preferred language to write a blog <br /> <br />
 <b>Approach:</b> <br />
 • Group the entire dataset based on languages that blogs are published in <br />
@@ -96,5 +101,7 @@ English is the most preferred language to write a blog because of the following:
 • It is the only language that supports all 3 types of articles that is blog, news and discussions <br />
 • It also has the highest number of replies compared to other languages. <br />
  <br />
-
+<img src="https://github.com/PrithviKamath/Live-Blog-Analysis/blob/master/Final/Analysis/Analysis%203/Analysis%203_1.PNG"></img>
+<img src="https://github.com/PrithviKamath/Live-Blog-Analysis/blob/master/Final/Analysis/Analysis%203/Analysis%203_2.PNG"></img>
+<img src="https://github.com/PrithviKamath/Live-Blog-Analysis/blob/master/Final/Analysis/Analysis%203/Analysis%203_3.PNG"></img>
 
