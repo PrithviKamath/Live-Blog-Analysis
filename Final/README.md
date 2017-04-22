@@ -17,7 +17,6 @@ I have followed the below steps to  <br />
 • Store Processed Data <br />
 • Use Processed Data to perform analysis <br />
  <br />
- <br />
 <b>Download Live Data</b> <br />
 <b>Approach:</b> <br />
 • Sign In to WebHose.io to get a free token (API Key) <br />
@@ -72,7 +71,7 @@ We implement this algorithm to understand what is the current trending topic amo
  <br />
 Tf-idf takes 1 hour to analyze 700 blogs. <br /> <br />
 <b>Conclusion:</b> <br />
-• On observing the trend, we understand that there is a large contribution of people from US to writing blogs and replying to blogs <br />
+• On observing the trend, we understand that there is a large contribution of people from US to writing blogs and replying to blogs <br /> <br />
 • As this trend is continuous, we can also conclude that they contribute on an everyday basis <br />
 <img src="https://github.com/PrithviKamath/Live-Blog-Analysis/blob/master/Final/Analysis/Analysis%201/Analysis%201.PNG"></img>
  <br />
@@ -90,7 +89,7 @@ Tf-idf takes 1 hour to analyze 700 blogs. <br /> <br />
 • As this trend is continuous, we can also conclude that they contribute on an everyday basis <br />
  <br />
  <img src="https://github.com/PrithviKamath/Live-Blog-Analysis/blob/master/Final/Analysis/Analysis%202/Analysis%202.PNG"></img>
- <br />
+ <br /> <br />
 <b>Analysis 3:</b> Find the most preferred language to write a blog <br /> <br />
 <b>Approach:</b> <br />
 • Group the entire dataset based on languages that blogs are published in <br />
