@@ -9,6 +9,7 @@ Webhose.io is the brainchild of Ran Geva and Guy Mor, two entrepreneurs with ext
 Each JSON files has the below structure <br />
 <img src="https://github.com/PrithviKamath/Live-Blog-Analysis/blob/master/Final/Extra/Dataset%20Summary.PNG"></img>
  <br />
+  <br />
 I have followed the below steps to  <br />
 • Download live data <br />
 • Store the raw data <br />
@@ -22,9 +23,7 @@ I have followed the below steps to  <br />
 • Sign In to WebHose.io to get a free token (API Key) <br />
 • Set this token as an environmental variable for easy accessibility <br />
 • Pass ‘Reviews’ as a query to get 100 latest blogs, news and discussion about various reviews on the internet in JSON format. (Each JSON file represents one blog) <br />
-
-Data Download Image
-<image>
+<img src="https://github.com/PrithviKamath/Live-Blog-Analysis/blob/master/Final/Extra/Download%20Data.PNG"></img>
  <br />
 <b>Store Raw Data</b> <br />
 <b>Approach:</b> <br />
@@ -36,9 +35,7 @@ Data Download Image
 • If the country folders already exist, add the new JSON files in them <br />
 • The naming format for each JSON file is: ‘UUID_time_stamp’ for easy identification <br />
 • JSON files with missing country tag are moved to ‘Not Mentioned’ folder <br />
-
-Data storage Image
-<image>
+<img src="https://github.com/PrithviKamath/Live-Blog-Analysis/blob/master/Final/Extra/Data%20Storage.PNG"></img>
  <br />
 <b>Perform Data Wrangling and generate processed data</b> <br />
 <b>Data Concatenation:</b> <br />
