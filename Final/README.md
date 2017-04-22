@@ -1,5 +1,5 @@
 
-<image>
+<img src="https://github.com/PrithviKamath/Live-Blog-Analysis/blob/master/Final/Extra/WebHose.io.png"></img>
  <br />
 <b>About WebHose</b> <br />
 WebHose provides on-demand access to web data feeds anyone can consume. Webhose.io empowers its customers to build, launch, and scale data-driven operations as they grow -- whether they are an entrepreneur, a researcher, or a senior executive at a Fortune 500 company. Developers get free access to the same web data feeds that power their growing customer base of global media analytics and monitoring leaders. Every web data feed is optimized to deliver up-to-the-minute coverage of a specific content domain, such as news, blogs, online discussions, and more. Just define your filters so you can focus on what you do best.  <br />
@@ -7,9 +7,7 @@ Webhose.io is the brainchild of Ran Geva and Guy Mor, two entrepreneurs with ext
  <br />
 <b>Dataset Summary:</b> <br />
 Each JSON files has the below structure <br />
-
-JSON Structure
-<image>
+<img src="https://github.com/PrithviKamath/Live-Blog-Analysis/blob/master/Final/Extra/Dataset%20Summary.PNG"></img>
  <br />
 I have followed the below steps to  <br />
 • Download live data <br />
