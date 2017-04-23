@@ -130,7 +130,8 @@ I have presented my analysis on 702 blogs that I have downloaded using the API. 
 • Open GitBash in the location you have saved the above downloaded repository  <br />
 • Export the token key as shown in the below screen shot <br /> <br />
 <img src="https://github.com/PrithviKamath/Live-Blog-Analysis/blob/master/Final/Extra/API_key_instruction.PNG"></img> <br /><br />
-• Open jupyter notebook from this GitBash and run the 'API_download_store.ipymb' file <br />
+• Open jupyter notebook from this GitBash and run the 'API_download_store.ipymb' file <br /> <br />
+<img src="https://github.com/PrithviKamath/Live-Blog-Analysis/blob/master/Final/Extra/Jupyter_notebook.PNG"></img> <br /><br />
 • Run the 'Get_processed_data.ipymb' file to get processed data from raw files <br />
 • Run the 'Analysis1.ipymb' file to get output for first analysis. Output will be saved in '/Final/Analysis/Analysis 1' <br />
 • Run the 'Analysis2.ipymb' file to get output for second analysis. Output is a seaborn graph that is display in jupyter notebook <br />
