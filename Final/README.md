@@ -30,8 +30,7 @@ I have followed the below steps to  <br />
 <b>Approach:</b> <br />
 • Get the working directory and move to its parent directory to start creating a folder structure <br />
 • A function checks whether a given folder exits. If not, it creates a folder with the given name and returns the new path, else if the folder already exists, it updates and returns the new path <br />
-• Use the above function to check for a folder named ‘Final’ <br />
-• Perform the same operation to check for ‘Data’ and ‘Input Data’ folders <br />
+• Use the above function to create ‘Data’ and ‘Input Data’ folders <br />
 • Dynamically create folders for each country the JSON files belongs to and save those JSON files in their respective country folders <br />
 • If the country folders already exist, add the new JSON files in them <br />
 • The naming format for each JSON file is: ‘UUID_time_stamp’ for easy identification <br />
@@ -52,11 +51,17 @@ I have followed the below steps to  <br />
 • Check if the dataset has missing values and get a count and percentage of missing values for each attribute <br />
 • From this we understand that ‘rating’ has 99% missing values. We therefore ignore this variable in our analysis. <br />
 • ‘domain_rank’ has 55% missing values. To fill these missing values we have to understand what ‘domain_rank’ represents and what are the factors it is based on.  <br />
-• ‘main_image’ is the image URL and its missing values are filled with ‘NA’ <br /> <br />
+• ‘main_image’ is the image URL and its missing values are filled with ‘NA’ <br />
+• I am also removing multiple new line charecters <br />
+
+Next I am converting 'published' variable to datetime format and deriving a new column 'published_day' which only extracts the day from the published variable. <br /> <br />
+
+This dataframe is stored as 'ProcessedData.csv' in '/Final/Data/Processed Data' <br />
+I have purposely not added a timestamp to this .csv file as I want it to be replaced with new file everytime 'Get_processed_data.ipymb' file is executed. <br /> <br />
+
+We shall hence forth be using this file to perform analysis. <br /> <br />
 
 <b>File</b>: Get_processed_data.ipymb <br /> <br />
-
-We shall hence forth be using cleaned and processed file stored in 'Processed Data' folder to perform analysis. <br /> <br />
 
 <b>Analysis 1:</b> Tf-idf (Text frequency- Inverse Document Frequency) <br />
 We implement this algorithm to understand what is the current trending topic among blogers. This algorithm calculates the weight for each word based on the its occurrence in the file and compares it with words in all other files. It reduces the weight of words which appears in multiple files thereby increasing the weight of unique words of each file. <br /> <br />
@@ -68,19 +73,21 @@ We implement this algorithm to understand what is the current trending topic amo
 • Tfidf(word,blob,bloblist): Computes tfidf score by multiplying tf and idf values calculated above. <br />
 • We then use NLTK package to remove the stop words in English and generate a ‘tfanalysis’ DataFrame containing only the text  <br /> <br />
 
+<b>Mathematical equation</b> <br />
 <img src="https://github.com/PrithviKamath/Live-Blog-Analysis/blob/master/Final/Extra/tf-idf.PNG"></img>  <br /> <br />
 
 <b>Approach:</b> <br />
+• Read the processed data <br />
 • Remove punctuations from the text <br />
 • Remove stop words using NLTK package <br />
 • Convert the entire text to BlobText object <br />
 • Find the score for each word using the above defined functions <br />
 • Display only the highest rated word for each file <br />
+• Save highest rated words of only the first 50 files in a .csv file <br />
  <br />
-Tf-idf takes 1 hour to analyze 700 blogs. <br /> <br />
+Tf-idf takes 1 hour to analyze 700 blogs <br /> <br />
 <b>Conclusion:</b> <br />
-• On observing the trend, we understand that there is a large contribution of people from US to writing blogs and replying to blogs <br />
-• As this trend is continuous, we can also conclude that they contribute on an everyday basis <br /> <br />
+• We can easily conclude the domain the blog belongs to using the highest weighted word for each blo. <br /> <br />
 
 <b>Input File</b>: Analysis1.ipymb <br />
 <b>Output File</b>: Analysis1.csv in 'Final/Data/Analysis/Analysis 1' folder<br /> <br />
@@ -90,8 +97,7 @@ Tf-idf takes 1 hour to analyze 700 blogs. <br /> <br />
 <b>Analysis 2:</b> Get country wise distribution of number of people contributing to blog writing and replying to various blog over the past month. <br /> <br />
 
 <b>Approach:</b> <br />
-• Convert the published_date to datetime format <br />
-• Extract day and save it into a new derived variable named ‘published_day’ <br />
+• Read the processed data <br />
 • Get top 20 countries which contribute to blog writing using groupby function on ‘published_day’ and ‘country’ variable <br />
 • Get top 20 countries which contribute to replying to blog using groupby function on ‘published_day’ and ‘country’ and getting a count of ‘replies_count’ <br />
 • Use matplotlib to generate subplots <br />
@@ -107,6 +113,7 @@ Tf-idf takes 1 hour to analyze 700 blogs. <br /> <br />
 <b>Analysis 3:</b> Find the most preferred language to write a blog <br /> <br />
 
 <b>Approach:</b> <br />
+• Read the processed data <br />
 • Group the entire dataset based on languages that blogs are published in <br />
 • Get the various ‘site_type’ supported by various languages <br />
 • Get the count of replies for blogs in each language <br /> <br />
